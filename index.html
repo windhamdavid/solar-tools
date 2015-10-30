@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Project Size | Solar</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzK93ZAR-RHPNwB-xMLdBQSv-pz1wEOtg&v=3.exp&sensor=false&libraries=places,drawing,geometry"> </script>
+	<script src="js/script.js"></script>
+</head>
+
+<body>
+<script>
+
+</script>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Solar Tools</p>
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item active">Project Size</a>
+                    <a href="utility.html" class="list-group-item">Utility Rates</a>
+                    <a href="bill.html" class="list-group-item">Bill Fetch</a>
+						  <a href="irradiance.html" class="list-group-item">Solar Irradiance</a>
+						  <a href="system.html" class="list-group-item">System Production</a>
+						  <a href="incentives.html" class="list-group-item">Financial Incentives</a>
+						  <a href="costs.html" class="list-group-item">Installation Cost</a>
+                </div>
+					
+            </div>
+
+            <div class="col-md-9">
+					<h2>Project Size</h2>
+                <div class="thumbnail">
+					     <div style="width: 100%; height: 500px;" id="mapDiv"></div>
+					     <div id="mapDiv45"></div>
+					     <div style="display: none;" id="mapDivImage"> </div>
+					     <div  id="draggable"><img src="img/compass.png"></div>
+                    <div class="caption-full">
+							    <form class="form-inline">
+							   ADDRESS:
+							   <br /> 
+							   <div class="form-group first-row">
+							   <input id="address" class="form-control" size="60" value="1306 SC-72, Greenwood, SC 29649" /> 
+							   </div>
+							   <div class="form-group form-groups btn-group">	
+								<input type="button" class="btn btn-default" href="javascript:void(0)" id="update_address" value="Update Address">
+							   </div>
+							   <div class="form-group">	
+								<input type="button" class="btn btn-success" id="calculate" VALUE="Run Model"> 
+								</div>
+						      </form>  
+							</div>
+                </div>
+
+                <div class="well">
+						  <div class="text-right">
+							  <a id="show-hide-advanced-fields" href="#">Show / Hide Advanced Fields</a>
+      					</div>
+						<div id="advanced-fields">
+ 					     <div id='mapcontrols'>
+				 		   <input type="button" class="btn btn-default" id="btnTerrain" value="Terrain"> 
+				 			<input type="button" class="btn btn-default" id="btnRoadmap" value="Roadmap">
+				 			<input type="button" class="btn btn-default" id="btnSatellite"  value="Satellite">
+				 			<input type="button" class="btn btn-default" id="btnHybrid" value="Hybrid"> 
+				 			<input type="button" class="btn btn-default" id="btnCompass" value="Compass"> 
+				 			<input type="button" class="btn btn-default" id="btnInspector" value="Inspect Roof">
+ 					     </div>
+
+							<br />
+							INPUTS:
+							<br />       
+						   <div class="form-group" style="margin-right: 20px;">
+							Orientation of the roof: <input id="azimuth" size="4" value="180" /> (<a href="#" onclick="$('#draggable').toggle();">Show/Hide Compass</a>)
+						   </div>
+						    <div class="form-group" style="margin-right: 20px;">	
+							Tilt: <input id="tilt" size="4" value="20" />
+							</div>
+						    <div class="form-group" style="margin-right: 20px;">	
+							PPA Price: <input id="ppa" size="4" value="0.15" />
+							</div>
+							<br><br>
+					    </div>
+					    <div id="results"></div>
+					    <div id="results2"></div>
+					    <div id="results3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                     <p><small>Data provided by <a href="http://www.nrel.gov/" target="_blank">NREL</a></small></p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

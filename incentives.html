@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Financial Incentives | Solar</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="js/script.js"></script>
+</head>
+
+<body>
+<script>
+
+</script>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Solar Tools</p>
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">Project Size</a>
+                    <a href="utility.html" class="list-group-item">Utility Rates</a>
+                    <a href="bill.html" class="list-group-item">Bill Fetch</a>
+						  <a href="irradiance.html" class="list-group-item">Solar Irradiance</a>
+						  <a href="system.html" class="list-group-item">System Production</a>
+						  <a href="incentives.html" class="list-group-item active">Financial Incentives</a>
+						  <a href="costs.html" class="list-group-item">Installation Cost</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+					 <h2>Financial Incentives</h2>
+					 <h4>This tool fetches solar incentives based on the geographic location</h4>
+					 <br> <br>
+					  <form class="form-inline">
+					    <div class="form-group">
+					      <label for="city">City</label>
+					      <input type="text" class="form-control" name="city" id="city" value="Greenwood" placeholder="Greenwood">
+					    </div>
+					    <div class="form-group">
+					      <label for="state">State</label>
+					      <input type="text" class="form-control" name="state" id="state" value="SC" placeholder="SC" size="3">
+					    </div>
+					    <input type="button" class="btn btn-success" onclick="show_incentives();" VALUE="Show Incentives">
+					  </form> 
+					  <br><br>                   
+					<div id='incentives' style="min-height: 300px;">
+						<div id="list_of_incentives"></div>
+					</div>
+            </div>
+        </div>
+    </div>
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p></p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

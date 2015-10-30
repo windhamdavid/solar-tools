@@ -1,0 +1,70 @@
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+
+#draggable { 
+	position: absolute;
+	width: 150px; 
+	height: 150px; 
+	padding: 0.5em; 
+	left: 100px;
+	top: 200px;
+	display: none;}
+
+#mapDiv45 { 
+	display: none;
+	width: 250px; 
+	height: 250px; 
+	padding: 0.5em; 
+	position: absolute; 
+	border: 10px solid #FFFFFF;
+	right: 0px;
+	top: 600px;
+    } 
+
+#mapDivImage { 
+	width: 400px; 
+	height: 400px; 
+	padding: 0.5em; 
+	position: absolute; 
+	border: 2px solid #eeeeee;} 
+
+#mapDiv { 
+	height: 70%; 
+	width: 100% }
+
+
+#draggable { 
+	width: 150px; 
+	height: 150px; 
+	padding: 0.5em; }
+
+#advanced-fields, #mapcontrols {
+	display: none;
+}	
+
+#results, #results2, #results3 { display: block; }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Solar Irradiance | Solar</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzK93ZAR-RHPNwB-xMLdBQSv-pz1wEOtg&v=3.exp&sensor=false&libraries=places,drawing,geometry"> </script>
+	<script src="js/script.js"></script>
+</head>
+
+<body>
+<script>
+
+</script>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Solar Tools</p>
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">Project Size</a>
+                    <a href="utility.html" class="list-group-item">Utility Rates</a>
+                    <a href="bill.html" class="list-group-item">Bill Fetch</a>
+						  <a href="irradiance.html" class="list-group-item active">Solar Irradiance</a>
+						  <a href="system.html" class="list-group-item">System Production</a>
+						  <a href="incentives.html" class="list-group-item">Financial Incentives</a>
+						  <a href="costs.html" class="list-group-item">Installation Cost</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+				 <h2>Solar Irradiance</h2>
+				 <h4>This tool allows you to estimate solar irradiance available in a location</h4>
+				  <br><br>
+				  <form class="form-inline">
+				    <div class="form-group">
+				      <label for="city">City</label>
+				      <input type="text" class="form-control" name="city" id="city" value="Greenwood" placeholder="Greenwood">
+				    </div>
+				    <div class="form-group">
+				      <label for="state">State</label>
+				      <input type="text" class="form-control" name="state" id="state" value="SC" placeholder="SC" size="3">
+				    </div>
+					 <br /><br />
+				    <div class="form-group">
+				      <label for="tilt">Tilt</label>
+				      <input type="text" class="form-control" name="tilt" id="tilt" value="40"  size="4">
+				    </div>
+				    <div class="form-group">
+				      <label for="azimuth">Azimuth</label>
+				      <input type="text" class="form-control" name="azimuth" id="azimuth" value="40"  size="4">
+				    </div>
+				    <div class="form-group">
+				      <label for="size">System Size</label>
+				      <input type="text" class="form-control" name="size" id="size" value="50"  size="4">
+				    </div>
+
+				  </form>
+				  <br />
+				  <form class="form-inline">
+						<label for="mount">Mount Type:</label>
+						<select name="array_type" id="array_type" class="form-control" width="200" style="width:180px"> 
+							<option value="0" > Fixed - Open Rack </option>
+							<option value="1" selected> Fixed - Roof Mounted </option>
+							<option value="2" > 1-Axis </option>
+							<option value="3" > 1-Axis Backtracking </option>
+							<option value="4" > 2-Axis </option> 
+						</select>                                 
+						<label for="module"> Module Type:</label>
+						<select name="module_type" id="module_type" class="form-control" width="200" style="width:150px"> 
+							<option value="0" > Standard </option>
+							<option value="1" selected> Premium </option>
+							<option value="2" > Thin Film </option>
+						</select> 
+					    <input type="button" class="btn btn-success" onclick="pvwatts_irradiance();" value="Run PV Watts">
+					</form>
+					<br><br>
+					<div id="pv_watts_annual_production" class="alert alert-success" role="alert"></div> 
+						<div id="pv_watts_output_table">
+						<table class="table" width="100%" border="1px;" cellpadding="2px;">
+						       <tr>
+						        <td> Month </td>
+						        <td> Jan </td>
+						        <td> Feb </td>
+						        <td> Mar </td>
+						        <td> Apt </td> 
+						        <td> May </td>
+						        <td> Jun </td>
+						        <td> Jul </td>
+						        <td> Aug </td>
+						        <td> Sep </td>
+						        <td> Oct </td>
+						        <td> Nov </td>
+						        <td> Dec </td>
+						       </tr>
+						        <tr>
+						        <td> Radiation <br /> (kWh) </td>
+						        <td> <span id="radiation_jan"></span> </td>
+						        <td> <span id="radiation_feb"></span> </td>
+						        <td> <span id="radiation_mar"></span> </td>
+						        <td> <span id="radiation_apr"></span> </td> 
+						        <td> <span id="radiation_may"></span> </td>
+						        <td> <span id="radiation_jun"></span> </td>
+						        <td> <span id="radiation_jul"></span> </td>
+						        <td> <span id="radiation_aug"></span> </td>
+						        <td> <span id="radiation_sep"></span> </td>
+						        <td> <span id="radiation_oct"></span> </td>
+						        <td> <span id="radiation_nov"></span> </td>
+						        <td> <span id="radiation_dec"></span> </td>
+						       </tr>
+						        <tr>
+						        <td> Production <br /> (AC kWh) </td>
+						        <td> <span id="production_jan"></span> </td>
+						        <td> <span id="production_feb"></span> </td>
+						        <td> <span id="production_mar"></span> </td>
+						        <td> <span id="production_apr"></span> </td> 
+						        <td> <span id="production_may"></span> </td>
+						        <td> <span id="production_jun"></span> </td>
+						        <td> <span id="production_jul"></span> </td>
+						        <td> <span id="production_aug"></span> </td>
+						        <td> <span id="production_sep"></span> </td>
+						        <td> <span id="production_oct"></span> </td>
+						        <td> <span id="production_nov"></span> </td>
+						        <td> <span id="production_dec"></span> </td>
+						       </tr>
+
+						    </table>
+						</div>  
+					 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p></p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
